@@ -71,7 +71,7 @@ export default function ExpenseSettlementApp() {
                         <div className="flex flex-wrap items-center gap-3">
                           <Badge variant="accent">Settlement //</Badge>
                           <span className="font-mono text-xs font-semibold uppercase tracking-[0.22em] text-muted">
-                            Real-world bill split
+                            Bill split calculator
                           </span>
                         </div>
                         <div className="space-y-4">
@@ -79,9 +79,9 @@ export default function ExpenseSettlementApp() {
                             text-4xl tracking-tighter text-balance
                           </p>
                           <h1 className="max-w-4xl font-sans text-5xl font-semibold leading-[0.95] tracking-[-0.08em] text-foreground sm:text-6xl lg:text-7xl">
-                            Know exactly
+                            Split bills online
                             <br />
-                            who pays whom
+                            and know who pays whom
                           </h1>
                         </div>
                       </div>
@@ -91,9 +91,9 @@ export default function ExpenseSettlementApp() {
                           text-base text-gray-950
                         </p>
                         <p className="max-w-3xl text-base leading-8 text-muted sm:text-lg">
-                          Enter what everyone paid. The app calculates the equal
-                          share, highlights balances, and gives you the shortest
-                          clean payment list.
+                          Use this free expense settlement calculator to split
+                          group expenses, calculate each person&apos;s share, and see
+                          a clean who-owes-whom payment plan in seconds.
                         </p>
                       </div>
                     </div>

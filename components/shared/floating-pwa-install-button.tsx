@@ -43,10 +43,33 @@ function canRegisterServiceWorker() {
   }
 
   return (
+    process.env.NODE_ENV === "production" &&
     "serviceWorker" in navigator &&
     (window.isSecureContext ||
       window.location.hostname === "localhost" ||
       window.location.hostname === "127.0.0.1")
+  );
+}
+
+async function clearPwaDevelopmentArtifacts() {
+  if (typeof window === "undefined" || !("serviceWorker" in navigator)) {
+    return;
+  }
+
+  const registrations = await navigator.serviceWorker.getRegistrations();
+
+  await Promise.all(registrations.map((registration) => registration.unregister()));
+
+  if (!("caches" in window)) {
+    return;
+  }
+
+  const cacheKeys = await window.caches.keys();
+
+  await Promise.all(
+    cacheKeys
+      .filter((key) => key.startsWith("split-together-"))
+      .map((key) => window.caches.delete(key)),
   );
 }
 
@@ -60,7 +83,11 @@ export function FloatingPwaInstallButton() {
   const [isIos, setIsIos] = useState(false);
 
   useEffect(() => {
-    if (canRegisterServiceWorker()) {
+    if (process.env.NODE_ENV !== "production") {
+      clearPwaDevelopmentArtifacts().catch((error: unknown) => {
+        console.error("PWA development cleanup failed.", error);
+      });
+    } else if (canRegisterServiceWorker()) {
       navigator.serviceWorker.register("/sw.js").catch((error: unknown) => {
         console.error("Service worker registration failed.", error);
       });

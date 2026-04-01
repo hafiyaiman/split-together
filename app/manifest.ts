@@ -1,17 +1,17 @@
 import type { MetadataRoute } from "next";
+import { SITE_DESCRIPTION, SITE_NAME } from "@/lib/constants/site";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "SplitTogether",
-    short_name: "SplitTogether",
-    description:
-      "Split bills, calculate balances, and share the cleanest payment plan.",
+    name: SITE_NAME,
+    short_name: SITE_NAME,
+    description: SITE_DESCRIPTION,
     start_url: "/",
     scope: "/",
     display: "standalone",
     orientation: "portrait",
-    background_color: "#fafafa",
-    theme_color: "#fafafa",
+    background_color: "#fafaf8",
+    theme_color: "#fafaf8",
     icons: [
       {
         src: "/logo/icon-192.png",
