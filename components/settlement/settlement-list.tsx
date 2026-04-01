@@ -102,7 +102,7 @@ export function SettlementList({
                     </div>
                   </div>
                   <div className="flex items-center justify-end px-6 py-5">
-                    <p className="font-mono text-2xl font-semibold tracking-[-0.05em] text-foreground">
+                    <p className="max-w-full text-right font-mono text-xl font-semibold tracking-[-0.05em] text-foreground [font-variant-numeric:tabular-nums] [overflow-wrap:anywhere] sm:text-2xl">
                       {formatAmount(settlement.amount)}
                     </p>
                   </div>

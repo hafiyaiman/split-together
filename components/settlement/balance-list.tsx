@@ -61,7 +61,7 @@ export function BalanceList({ balances }: BalanceListProps) {
                   </div>
 
                   <div className="flex items-center justify-end px-6 py-5">
-                    <div className="flex items-center gap-3 font-mono text-lg font-semibold">
+                    <div className="flex max-w-full items-center gap-3 font-mono text-base font-semibold sm:text-lg">
                       {participant.status === "owes" ? (
                         <ArrowUpRight className="h-4 w-4 text-danger" />
                       ) : participant.status === "receives" ? (
@@ -72,10 +72,10 @@ export function BalanceList({ balances }: BalanceListProps) {
                       <span
                         className={
                           participant.status === "owes"
-                            ? "text-danger"
+                            ? "max-w-full text-right text-danger [font-variant-numeric:tabular-nums] [overflow-wrap:anywhere]"
                             : participant.status === "receives"
-                              ? "text-success"
-                              : "text-foreground"
+                              ? "max-w-full text-right text-success [font-variant-numeric:tabular-nums] [overflow-wrap:anywhere]"
+                              : "max-w-full text-right text-foreground [font-variant-numeric:tabular-nums] [overflow-wrap:anywhere]"
                         }
                       >
                         {formatSignedAmount(participant.balance)}

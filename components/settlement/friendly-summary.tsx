@@ -38,7 +38,7 @@ export function FriendlySummary({
               <p className="text-sm text-muted">Each included person should pay</p>
             </div>
             <div className="flex items-center justify-end px-6 py-5">
-              <p className="font-mono text-3xl font-semibold tracking-tight text-accent">
+              <p className="max-w-full text-right font-mono text-2xl font-semibold tracking-tight text-accent [font-variant-numeric:tabular-nums] [overflow-wrap:anywhere] sm:text-3xl">
                 {formatAmount(share)}
               </p>
             </div>
@@ -75,7 +75,7 @@ export function FriendlySummary({
                   </div>
                   <div className="flex items-center justify-end px-6 py-5">
                     <p
-                      className={`font-mono text-lg font-semibold ${
+                      className={`max-w-full text-right font-mono text-base font-semibold [font-variant-numeric:tabular-nums] [overflow-wrap:anywhere] sm:text-lg ${
                         participant.balance > 0 ? "text-success" : "text-danger"
                       }`}
                     >
