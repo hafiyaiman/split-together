@@ -53,6 +53,10 @@ export const metadata: Metadata = {
     description: SITE_DESCRIPTION,
     images: [OG_IMAGE],
   },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+  },
   manifest: "/manifest.webmanifest",
   appleWebApp: {
     capable: true,

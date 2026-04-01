@@ -1,6 +1,8 @@
 "use client";
 
-import { Download } from "lucide-react";
+import { useEffect, useState } from "react";
+import { FileDown } from "lucide-react";
+import { useTheme } from "@/components/theme-provider";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
@@ -14,6 +16,20 @@ export function SettlementNavbar({
   canDownloadPdf,
   onDownloadPdf,
 }: SettlementNavbarProps) {
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    queueMicrotask(() => {
+      setMounted(true);
+    });
+  }, []);
+
+  const logoSrc =
+    mounted && resolvedTheme === "dark"
+      ? "/logo/logo-dark.png"
+      : "/logo/logo.png";
+
   return (
     <nav className="section-hover sticky top-0 z-30 border-b border-border bg-background/92 backdrop-blur-sm">
       <div className="mx-auto w-full max-w-7xl border-x border-border">
@@ -24,11 +40,12 @@ export function SettlementNavbar({
             </Badge>
             <div className="flex items-center gap-2">
               <Image
-                src="/logo/logo.png"
+                src={logoSrc}
                 alt="SplitTogether Logo"
                 width={32}
                 height={32}
                 className="rounded-sm"
+                suppressHydrationWarning
               />
               <p className="font-mono text-lg font-semibold tracking-[-0.04em] text-foreground">
                 SplitTogether
@@ -44,7 +61,7 @@ export function SettlementNavbar({
               onClick={onDownloadPdf}
               className="rounded-none"
             >
-              <Download className="h-4 w-4" />
+              <FileDown className="h-4 w-4" />
               <span className="sm:block hidden">Download PDF</span>
             </Button>
             <p className="text-xs leading-5 text-muted sm:text-right sm:block hidden">
