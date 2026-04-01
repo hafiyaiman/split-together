@@ -1,5 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import { Geist } from "next/font/google";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 export const metadata: Metadata = {
   title: "SplitTogether - Bill Splitting and Expense Settlement Calculator",
@@ -24,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full antialiased bg-background">
+    <html lang="en" className={cn("h-full antialiased bg-background", "font-sans", geist.variable)}>
       <body className="min-h-full">{children}</body>
     </html>
   );
