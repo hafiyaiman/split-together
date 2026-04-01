@@ -32,8 +32,8 @@ export function FriendlySummary({
         </div>
       </CardHeader>
       <CardContent className="gap-0 p-0">
-        <div className="border-y border-black/10 bg-[linear-gradient(180deg,rgba(233,255,251,0.18),rgba(255,255,255,0.12))]">
-          <div className="grid sm:grid-cols-[minmax(0,1fr)_12rem] sm:divide-x sm:divide-black/10">
+        <div className="border-y border-border bg-[linear-gradient(180deg,color-mix(in_oklab,var(--accent-soft)_24%,transparent),color-mix(in_oklab,var(--card)_20%,transparent))]">
+          <div className="grid sm:grid-cols-[minmax(0,1fr)_12rem] sm:divide-x sm:divide-border">
             <div className="px-6 py-5">
               <p className="text-sm text-muted">Each included person should pay</p>
             </div>
@@ -66,10 +66,10 @@ export function FriendlySummary({
             </Alert>
           </div>
         ) : (
-          <div className="divide-y divide-black/10">
+          <div className="divide-y divide-border">
             {activeBalances.map((participant) => (
               <div key={participant.id}>
-                <div className="grid sm:grid-cols-[minmax(0,1fr)_12rem] sm:divide-x sm:divide-black/10">
+                <div className="grid sm:grid-cols-[minmax(0,1fr)_12rem] sm:divide-x sm:divide-border">
                   <div className="px-6 py-5">
                     <p className="font-medium text-foreground">{participant.name}</p>
                   </div>

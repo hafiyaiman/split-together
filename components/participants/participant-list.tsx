@@ -51,8 +51,8 @@ export function ParticipantList({
         </div>
       </CardHeader>
       <CardContent className="flex flex-1 flex-col gap-0 !py-0">
-        <div className="border-b border-black/10">
-          <div className="grid sm:grid-cols-3 sm:divide-x sm:divide-black/10">
+        <div className="border-b border-border">
+          <div className="grid sm:grid-cols-3 sm:divide-x sm:divide-border">
             <Button
               type="button"
               onClick={onAdd}
@@ -83,7 +83,7 @@ export function ParticipantList({
         </div>
 
         {participants.length === 0 ? (
-          <div className="flex flex-1 border-b border-dashed border-black/10 text-center">
+          <div className="flex flex-1 border-b border-dashed border-border text-center">
             <div className="m-auto px-6 py-12">
               <p className="font-mono text-lg font-semibold tracking-[-0.04em] text-foreground">
                 Start with one person
@@ -113,7 +113,7 @@ export function ParticipantList({
         )}
 
         {hasErrors ? (
-          <div className="border-t border-black/10 px-6 py-5">
+          <div className="border-t border-border px-6 py-5">
             <Alert variant="warning">
               <Badge variant="danger" className="w-fit">
                 Input //

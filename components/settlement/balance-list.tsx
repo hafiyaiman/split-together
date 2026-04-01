@@ -28,10 +28,10 @@ export function BalanceList({ balances }: BalanceListProps) {
             <p className="text-sm text-muted">Add participants to see individual balances.</p>
           </div>
         ) : (
-          <div className="border-t border-black/10 divide-y divide-black/10">
+          <div className="border-t border-border divide-y divide-border">
             {balances.map((participant) => (
               <div key={participant.id}>
-                <div className="grid sm:grid-cols-[minmax(0,1fr)_12rem] sm:divide-x sm:divide-black/10">
+                <div className="grid sm:grid-cols-[minmax(0,1fr)_12rem] sm:divide-x sm:divide-border">
                   <div className="px-6 py-5">
                     <div className="space-y-2">
                       <div className="flex items-center gap-3">

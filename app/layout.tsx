@@ -1,9 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import { Geist } from "next/font/google";
-import { cn } from "@/lib/utils";
-
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+import { ThemeProvider } from "@/components/theme-provider";
 
 export const metadata: Metadata = {
   title: "SplitTogether - Bill Splitting and Expense Settlement Calculator",
@@ -19,7 +16,10 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#fafafa",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#fafaf8" },
+    { media: "(prefers-color-scheme: dark)", color: "#12161b" },
+  ],
 };
 
 export default function RootLayout({
@@ -28,8 +28,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn("h-full antialiased bg-background", "font-sans", geist.variable)}>
-      <body className="min-h-full">{children}</body>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className="h-full antialiased bg-background"
+    >
+      <body className="min-h-full">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

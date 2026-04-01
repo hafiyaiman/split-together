@@ -29,8 +29,8 @@ export function ParticipantRow({
 }: ParticipantRowProps) {
   return (
     <div className="group">
-      <div className="grid sm:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] sm:divide-x sm:divide-black/10">
-        <div className="border-b border-black/10">
+      <div className="grid sm:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] sm:divide-x sm:divide-border">
+        <div className="border-b border-border">
           <div className="flex h-full flex-col justify-between px-6 py-5">
             {/* <div className="flex items-center justify-between gap-3"> */}
             {/* <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.22em] text-muted transition-colors duration-150 group-hover:text-foreground">
@@ -55,7 +55,7 @@ export function ParticipantRow({
 
             <div className="">
               <div className="flex justify-between items-center">
-                <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-black/35">
+                <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted/65">
                   Name
                 </p>
                 <label
@@ -97,11 +97,11 @@ export function ParticipantRow({
           </div>
         </div>
 
-        <div className="grid border-b border-black/10 grid-cols-[minmax(0,1fr)_3.5rem]">
-          <div className="border-r border-black/10">
+        <div className="grid border-b border-border grid-cols-[minmax(0,1fr)_3.5rem]">
+          <div className="border-r border-border">
             <div className="flex h-full flex-col justify-between gap-5 px-6 py-5">
               <div className="">
-                <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-black/35">
+                <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted/65">
                   Amount paid
                 </p>
                 <Input
@@ -138,7 +138,7 @@ export function ParticipantRow({
               onClick={() => onRemove(participant.id)}
               disabled={!canRemove}
               aria-label={`Remove participant ${index + 1}`}
-              className="h-full w-full rounded-none border-0 opacity-70 transition-all duration-150 group-hover:bg-white/20 group-hover:opacity-100"
+              className="h-full w-full rounded-none border-0 opacity-70 transition-all duration-150 group-hover:bg-card/40 group-hover:opacity-100"
             >
               <Trash2 className="h-4 w-4" />
             </Button>

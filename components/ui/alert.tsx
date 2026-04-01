@@ -11,11 +11,11 @@ const alertVariants = cva(
     variants: {
       variant: {
         default:
-          "border-accent/20 bg-[linear-gradient(180deg,rgba(233,255,251,0.88),rgba(255,255,255,0.94))] text-foreground",
+          "border-accent/20 bg-[linear-gradient(180deg,color-mix(in_oklab,var(--accent-soft)_92%,transparent),color-mix(in_oklab,var(--card)_96%,transparent))] text-foreground",
         warning:
-          "border-warning/30 bg-[linear-gradient(180deg,rgba(255,247,231,0.96),rgba(255,255,255,0.92))] text-foreground",
+          "border-warning/30 bg-[linear-gradient(180deg,color-mix(in_oklab,var(--warning-soft)_96%,transparent),color-mix(in_oklab,var(--card)_92%,transparent))] text-foreground",
         danger:
-          "border-danger/30 bg-[linear-gradient(180deg,rgba(255,241,238,0.96),rgba(255,255,255,0.92))] text-foreground",
+          "border-danger/30 bg-[linear-gradient(180deg,color-mix(in_oklab,var(--danger-soft)_96%,transparent),color-mix(in_oklab,var(--card)_92%,transparent))] text-foreground",
       },
     },
     defaultVariants: {
@@ -129,7 +129,7 @@ function Alert({ className, variant, children, ...props }: AlertProps) {
         </div>
       </div>
 
-      <div className="relative z-10 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.2))] sm:pr-40">
+      <div className="relative z-10 bg-[linear-gradient(180deg,color-mix(in_oklab,var(--card)_8%,transparent),color-mix(in_oklab,var(--card)_22%,transparent))] sm:pr-40">
         {children}
       </div>
     </div>

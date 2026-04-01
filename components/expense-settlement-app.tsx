@@ -1,6 +1,7 @@
 "use client";
 
 import { ParticipantList } from "@/components/participants/participant-list";
+import { FloatingThemeToggle } from "@/components/shared/floating-theme-toggle";
 import { SettlementNavbar } from "@/components/shared/settlement-navbar";
 import { SummaryCard } from "@/components/shared/summary-card";
 import { BalanceList } from "@/components/settlement/balance-list";
@@ -14,8 +15,8 @@ import Link from "next/link";
 
 function VerticalRail({ label }: { label: string }) {
   return (
-    <div className="absolute top-0 right-full hidden h-full w-20 xl:flex xl:flex-col xl:border-l xl:border-black/10">
-      <div className="editor-rail h-24 border-b border-black/10" />
+    <div className="absolute top-0 right-full hidden h-full w-20 xl:flex xl:flex-col xl:border-l xl:border-border">
+      <div className="editor-rail h-24 border-b border-border" />
       <div className="flex flex-1 items-center justify-center">
         <span className="rotate-180 font-mono text-[11px] font-semibold uppercase tracking-[0.3em] text-[#ff1493] [writing-mode:vertical-rl]">
           {label}
@@ -61,9 +62,9 @@ export default function ExpenseSettlementApp() {
           <VerticalRail label="Ready-made settlements" />
 
           <div className="w-full">
-            <div className="border-x border-black/10 divide-y divide-black/10">
+            <div className="border-x border-border divide-y divide-border">
               <section className="section-hover">
-                <div className="grid lg:grid-cols-[1.1fr_0.9fr] lg:divide-x lg:divide-black/10">
+                <div className="grid lg:grid-cols-[1.1fr_0.9fr] lg:divide-x lg:divide-border">
                   <div className="flex h-full">
                     <div className="flex min-h-[26rem] w-full flex-col justify-between px-6 py-6">
                       <div className="space-y-5">
@@ -74,7 +75,7 @@ export default function ExpenseSettlementApp() {
                           </span>
                         </div>
                         <div className="space-y-4">
-                          <p className="font-mono text-xs tracking-[0.12em] text-black/20">
+                          <p className="font-mono text-xs tracking-[0.12em] text-muted/45">
                             text-4xl tracking-tighter text-balance
                           </p>
                           <h1 className="max-w-4xl font-sans text-5xl font-semibold leading-[0.95] tracking-[-0.08em] text-foreground sm:text-6xl lg:text-7xl">
@@ -86,10 +87,10 @@ export default function ExpenseSettlementApp() {
                       </div>
 
                       <div className="space-y-4">
-                        <p className="font-mono text-xs tracking-[0.12em] text-black/20">
+                        <p className="font-mono text-xs tracking-[0.12em] text-muted/45">
                           text-base text-gray-950
                         </p>
-                        <p className="max-w-3xl text-base leading-8 text-slate-600 sm:text-lg">
+                        <p className="max-w-3xl text-base leading-8 text-muted sm:text-lg">
                           Enter what everyone paid. The app calculates the equal
                           share, highlights balances, and gives you the shortest
                           clean payment list.
@@ -99,14 +100,14 @@ export default function ExpenseSettlementApp() {
                   </div>
 
                   <div className="flex h-full">
-                    <div className="flex sm:min-h-[26rem] w-full flex-col bg-white/20 transition-colors duration-150 hover:bg-white/35">
-                      <div className="border-b border-black/10 px-6 py-5">
+                    <div className="flex sm:min-h-[26rem] w-full flex-col bg-card/35 transition-colors duration-150 hover:bg-card/60">
+                      <div className="border-b border-border px-6 py-5">
                         <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted">
                           Result.preview
                         </span>
                       </div>
 
-                      <div className="grid flex-1 divide-y divide-black/10 grid-cols-3 divide-x divide-y-0">
+                      <div className="grid flex-1 divide-y divide-border grid-cols-3 divide-x divide-y-0">
                         <SummaryCard
                           label="Total"
                           value={formatAmount(calculation.total)}
@@ -129,7 +130,7 @@ export default function ExpenseSettlementApp() {
               </section>
 
               <section className="lg:grid lg:grid-cols-2">
-                <div className="section-hover border-b border-black/10 lg:border-r">
+                <div className="section-hover border-b border-border lg:border-r">
                   <ParticipantList
                     participants={participants}
                     errors={participantErrors}
@@ -142,7 +143,7 @@ export default function ExpenseSettlementApp() {
                   />
                 </div>
 
-                <div className="section-hover border-b border-black/10">
+                <div className="section-hover border-b border-border">
                   <SettlementList
                     settlements={calculation.settlements}
                     headline={calculation.headline}
@@ -150,7 +151,7 @@ export default function ExpenseSettlementApp() {
                   />
                 </div>
 
-                <div className="section-hover border-b border-black/10 lg:border-b-0 lg:border-r">
+                <div className="section-hover border-b border-border lg:border-b-0 lg:border-r">
                   <FriendlySummary
                     share={calculation.share}
                     balances={calculation.balances}
@@ -188,6 +189,8 @@ export default function ExpenseSettlementApp() {
           </div>
         </div>
       </main>
+
+      <FloatingThemeToggle />
     </>
   );
 }

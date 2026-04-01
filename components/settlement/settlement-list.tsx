@@ -46,8 +46,8 @@ export function SettlementList({
         </div>
 
         {/* {firstSettlement && !isDisabled ? (
-          <div className="border-y border-black/10 bg-[linear-gradient(180deg,rgba(233,255,251,0.28),rgba(255,255,255,0.2))]">
-            <div className="grid sm:grid-cols-[minmax(0,1fr)_14rem] sm:divide-x sm:divide-black/10">
+          <div className="border-y border-border bg-[linear-gradient(180deg,color-mix(in_oklab,var(--accent-soft)_32%,transparent),color-mix(in_oklab,var(--card)_28%,transparent))]">
+            <div className="grid sm:grid-cols-[minmax(0,1fr)_14rem] sm:divide-x sm:divide-border">
               <div className="px-6 py-5">
                 <div className="flex items-center gap-3">
                   <Badge variant="accent">Primary //</Badge>
@@ -71,7 +71,7 @@ export function SettlementList({
         ) : null} */}
 
         {settlements.length === 0 || isDisabled ? (
-          <div className="border-t border-dashed border-black/10 py-10 text-center">
+          <div className="border-t border-dashed border-border py-10 text-center">
             <div className="px-6">
               <ArrowRightLeft className="mx-auto h-8 w-8 text-muted" />
               <p className="mt-3 font-medium text-foreground">
@@ -84,13 +84,13 @@ export function SettlementList({
             </div>
           </div>
         ) : (
-          <div className="border-t border-black/10 divide-y divide-black/10">
+          <div className="border-t border-border divide-y divide-border">
             {settlements.map((settlement, index) => (
               <div
                 key={`${settlement.fromId}-${settlement.toId}-${index}`}
-                className={index === settlements.length - 1 ? "border-b border-black/10" : undefined}
+                className={index === settlements.length - 1 ? "border-b border-border" : undefined}
               >
-                <div className="grid sm:grid-cols-[minmax(0,1fr)_12rem] sm:divide-x sm:divide-black/10">
+                <div className="grid sm:grid-cols-[minmax(0,1fr)_12rem] sm:divide-x sm:divide-border">
                   <div className="px-6 py-5">
                     <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.22em] text-muted">
                       Payment {index + 1}

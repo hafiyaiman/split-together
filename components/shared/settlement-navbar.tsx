@@ -15,8 +15,8 @@ export function SettlementNavbar({
   onDownloadPdf,
 }: SettlementNavbarProps) {
   return (
-    <nav className="section-hover sticky top-0 z-30 border-b border-black/10 bg-background">
-      <div className="mx-auto w-full max-w-7xl border-x border-black/10">
+    <nav className="section-hover sticky top-0 z-30 border-b border-border bg-background/92 backdrop-blur-sm">
+      <div className="mx-auto w-full max-w-7xl border-x border-border">
         <div className="flex flex-col gap-4 px-6 py-4 flex-row items-center justify-between">
           <div className="flex items-center gap-3">
             <Badge variant="neutral" className="sm:block hidden">

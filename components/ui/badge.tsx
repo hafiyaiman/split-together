@@ -7,10 +7,10 @@ const badgeVariants = cva(
   {
     variants: {
       variant: {
-        neutral: "border-black/10 bg-white/70 text-foreground/70 hover:bg-white",
-        success: "border-emerald-200 bg-success-soft text-success hover:bg-emerald-50",
-        danger: "border-red-200 bg-danger-soft text-danger hover:bg-red-50",
-        accent: "border-teal-200 bg-[#e9fffb] text-accent hover:bg-[#dcfff8]",
+        neutral: "border-border bg-card/75 text-foreground/70 hover:bg-card",
+        success: "border-success/20 bg-success-soft text-success hover:brightness-98",
+        danger: "border-danger/20 bg-danger-soft text-danger hover:brightness-98",
+        accent: "border-accent/20 bg-accent-soft text-accent hover:brightness-98",
       },
     },
     defaultVariants: {
