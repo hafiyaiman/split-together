@@ -51,7 +51,7 @@ export function ParticipantList({
         </div>
       </CardHeader>
       <CardContent className="flex flex-1 flex-col gap-0 !py-0">
-        <div className="border-b border-border">
+        <div className="border-y border-border">
           <div className="grid sm:grid-cols-3 sm:divide-x sm:divide-border">
             <Button
               type="button"
@@ -65,7 +65,7 @@ export function ParticipantList({
               type="button"
               variant="secondary"
               onClick={onLoadSample}
-              className="h-14 w-full justify-center rounded-none border-0"
+              className="h-14 w-full justify-center rounded-none border-0 sm:border-r"
             >
               <FlaskConical className="h-4 w-4" />
               Load sample
@@ -83,7 +83,7 @@ export function ParticipantList({
         </div>
 
         {participants.length === 0 ? (
-          <div className="flex flex-1 border-b border-dashed border-border text-center">
+          <div className="flex flex-1 sm:border-none border-b border-border text-center">
             <div className="m-auto px-6 py-12">
               <p className="font-mono text-lg font-semibold tracking-[-0.04em] text-foreground">
                 Start with one person

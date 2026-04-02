@@ -88,7 +88,11 @@ export function SettlementList({
             {settlements.map((settlement, index) => (
               <div
                 key={`${settlement.fromId}-${settlement.toId}-${index}`}
-                className={index === settlements.length - 1 ? "border-b border-border" : undefined}
+                className={
+                  index === settlements.length - 1
+                    ? "border-b border-border"
+                    : undefined
+                }
               >
                 <div className="grid sm:grid-cols-[minmax(0,1fr)_12rem] sm:divide-x sm:divide-border">
                   <div className="px-6 py-5">

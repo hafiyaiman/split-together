@@ -92,8 +92,8 @@ export default function ExpenseSettlementApp() {
                         </p>
                         <p className="max-w-3xl text-base leading-8 text-muted sm:text-lg">
                           Use this free expense settlement calculator to split
-                          group expenses, calculate each person&apos;s share, and see
-                          a clean who-owes-whom payment plan in seconds.
+                          group expenses, calculate each person&apos;s share,
+                          and see a clean who-owes-whom payment plan in seconds.
                         </p>
                       </div>
                     </div>
@@ -128,9 +128,12 @@ export default function ExpenseSettlementApp() {
                   </div>
                 </div>
               </section>
+              <div className="h-16 sm:block hidden">
+                <div className="editor-rail h-full" />
+              </div>
 
               <section className="lg:grid lg:grid-cols-2">
-                <div className="section-hover border-b border-border lg:border-r">
+                <div className="section-hover border-border lg:border-r">
                   <ParticipantList
                     participants={participants}
                     errors={participantErrors}
@@ -143,14 +146,18 @@ export default function ExpenseSettlementApp() {
                   />
                 </div>
 
-                <div className="section-hover border-b border-border">
+                <div className="section-hover border-border">
                   <SettlementList
                     settlements={calculation.settlements}
                     headline={calculation.headline}
                     isDisabled={hasErrors}
                   />
                 </div>
-
+              </section>
+              <div className="h-16 sm:block hidden">
+                <div className="editor-rail h-full" />
+              </div>
+              <section className="lg:grid lg:grid-cols-2">
                 <div className="section-hover border-b border-border lg:border-b-0 lg:border-r">
                   <FriendlySummary
                     share={calculation.share}
